@@ -44,11 +44,11 @@ document.addEventListener('mouseup', (event) => {
         });
 
         document.addEventListener('mousedown', (event) => {
-            currentTranslateBox.remove();
+            if (currentTranslateBox)
+                currentTranslateBox.remove()
 
-            if (event.target !== translateButton) {
+            if (event.target !== translateButton)
                 translateButton.remove();
-            }
         }, { once: true });
     }
 });
