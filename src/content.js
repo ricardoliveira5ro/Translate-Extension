@@ -8,7 +8,7 @@ document.addEventListener('mouseup', (event) => {
         let translateButton = document.createElement('button');
   
         translateButton.textContent = 'Translate';
-        translateBox.classList.add('translate-button');
+        translateButton.classList.add('translate-button');
         translateButton.style.left = `${rect.right + window.scrollX + 5}px`;
         translateButton.style.top = `${rect.bottom + window.scrollY + 5}px`;
         
