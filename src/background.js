@@ -23,12 +23,7 @@ function translateSelectedText(selectedText) {
   const translateBox = document.createElement('div');
 
   translateBox.textContent = translation;
-  translateBox.style.color = '#000000';
-  translateBox.style.position = 'absolute';
-  translateBox.style.backgroundColor = '#f9f9f9';
-  translateBox.style.border = '1px solid #ccc';
-  translateBox.style.padding = '5px';
-  translateBox.style.zIndex = '1000';
+  translateBox.classList.add('translate-box');
   translateBox.style.left = `${rect.left + window.scrollX}px`;
   translateBox.style.top = `${rect.top + window.scrollY - 35}px`;
 

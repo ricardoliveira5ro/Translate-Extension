@@ -8,17 +8,10 @@ document.addEventListener('mouseup', (event) => {
         let translateButton = document.createElement('button');
   
         translateButton.textContent = 'Translate';
-        translateButton.style.position = 'absolute';
+        translateBox.classList.add('translate-button');
         translateButton.style.left = `${rect.right + window.scrollX + 5}px`;
         translateButton.style.top = `${rect.bottom + window.scrollY + 5}px`;
-        translateButton.style.zIndex = '1000';
-        translateButton.style.backgroundColor = '#008CBA';
-        translateButton.style.color = '#fff';
-        translateButton.style.border = 'none';
-        translateButton.style.borderRadius = '4px';
-        translateButton.style.padding = '5px 10px';
-        translateButton.style.cursor = 'pointer';
-  
+        
         document.body.appendChild(translateButton);
   
         translateButton.addEventListener('click', () => {
@@ -28,12 +21,7 @@ document.addEventListener('mouseup', (event) => {
             const translateBox = document.createElement('div');
 
             translateBox.textContent = translation;
-            translateBox.style.color = '#000000';
-            translateBox.style.position = 'absolute';
-            translateBox.style.backgroundColor = '#f9f9f9';
-            translateBox.style.border = '1px solid #ccc';
-            translateBox.style.padding = '5px';
-            translateBox.style.zIndex = '1000';
+            translateBox.classList.add('translate-box');
             translateBox.style.left = `${rectTranslation.left + window.scrollX}px`;
             translateBox.style.top = `${rectTranslation.top + window.scrollY - 35}px`;
 
