@@ -1,0 +1,19 @@
+.translate-box {
+    color: #000000;
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid black;
+    padding: 5px;
+    z-index: 1000;
+}
+
+.translate-button {
+    color: #fff;
+    background-color: #008CBA;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 1000;
+    position: absolute;  
+}
