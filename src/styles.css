@@ -1,6 +1,6 @@
 .translate-box {
-    color: #000000;
     position: absolute;
+    color: #000000;
     background-color: #f9f9f9;
     border: 1px solid black;
     padding: 5px;
@@ -8,6 +8,7 @@
 }
 
 .translate-button {
+    position: absolute;  
     color: #fff;
     background-color: #008CBA;
     border: none;
@@ -15,5 +16,4 @@
     padding: 5px 10px;
     cursor: pointer;
     z-index: 1000;
-    position: absolute;  
 }
