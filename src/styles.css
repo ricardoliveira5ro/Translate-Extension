@@ -1,13 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 .translate-box {
     position: absolute;
     color: #000000;
     background-color: #f9f9f9;
     border: 1px solid black;
-    padding: 5px;
+    padding: 5px 10px;
     z-index: 1000;
+    text-wrap: wrap;
 }
 
 .translate-button {
+    display: flex;
+    align-items: center;
     position: absolute;  
     color: #fff;
     background-color: #008CBA;
@@ -16,4 +21,18 @@
     padding: 5px 10px;
     cursor: pointer;
     z-index: 1000;
+}
+
+.translate-icon {
+    width: 26px;
+    height: 26px;
+    margin-right: 4px;
+}
+
+.translate-text {
+    font-size: 15px;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }

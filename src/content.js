@@ -5,13 +5,22 @@ document.addEventListener('mouseup', (event) => {
     if (selectedText.length > 0) {
         const range = window.getSelection().getRangeAt(0);
         const rect = range.getBoundingClientRect();
+
         let translateButton = document.createElement('button');
-  
-        translateButton.textContent = 'Translate';
         translateButton.classList.add('translate-button');
         translateButton.style.left = `${rect.right + window.scrollX + 5}px`;
         translateButton.style.top = `${rect.bottom + window.scrollY + 5}px`;
-        
+
+        let translateIcon = document.createElement('img');
+        translateIcon.src = chrome.runtime.getURL('icons/icon32.png');
+        translateIcon.classList.add('translate-icon');
+
+        let translateText = document.createElement('span');
+        translateText.textContent = 'Translate';
+        translateText.classList.add('translate-text')
+
+        translateButton.appendChild(translateIcon)
+        translateButton.appendChild(translateText)
         document.body.appendChild(translateButton);
   
         translateButton.addEventListener('click', () => {
@@ -22,8 +31,13 @@ document.addEventListener('mouseup', (event) => {
 
             translateBox.textContent = translation;
             translateBox.classList.add('translate-box');
+            const containerElement = range.startContainer.parentElement;
+            if (containerElement) {
+                const containerRect = containerElement.getBoundingClientRect();
+                translateBox.style.maxWidth = `${containerRect.width}px`;
+            }
             translateBox.style.left = `${rectTranslation.left + window.scrollX}px`;
-            translateBox.style.top = `${rectTranslation.top + window.scrollY - 35}px`;
+            translateBox.style.top = `${rectTranslation.top + window.scrollY - rectTranslation.height - 10}px`;
 
             document.body.appendChild(translateBox);
             currentTranslateBox = translateBox;
@@ -35,7 +49,7 @@ document.addEventListener('mouseup', (event) => {
             if (currentTranslateBox)
                 currentTranslateBox.remove()
 
-            if (event.target !== translateButton)
+            if (!translateButton.contains(event.target))
                 translateButton.remove();
         }, { once: true });
     }

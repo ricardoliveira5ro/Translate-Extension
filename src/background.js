@@ -24,8 +24,13 @@ function translateSelectedText(selectedText) {
 
   translateBox.textContent = translation;
   translateBox.classList.add('translate-box');
+  const containerElement = range.startContainer.parentElement;
+  if (containerElement) {
+      const containerRect = containerElement.getBoundingClientRect();
+      translateBox.style.maxWidth = `${containerRect.width}px`;
+  }
   translateBox.style.left = `${rect.left + window.scrollX}px`;
-  translateBox.style.top = `${rect.top + window.scrollY - 35}px`;
+  translateBox.style.top = `${rect.top + window.scrollY - rect.height - 10}px`;
 
   document.body.appendChild(translateBox);
 
