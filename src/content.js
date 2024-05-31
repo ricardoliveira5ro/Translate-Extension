@@ -25,39 +25,42 @@ document.addEventListener('mouseup', (event) => {
   
         translateButton.addEventListener('click', async () => {
             try {
-                const response = await fetch('https://translate-server-ten.vercel.app/translate', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        text: selectedText,
-                        targetLang: 'PT-PT'
-                    })
+                chrome.storage.sync.get(['targetLanguage'], async (result) => {
+                    const targetLanguage = result.targetLanguage || 'EN';
+
+                    const response = await fetch('https://translate-server-ten.vercel.app/translate', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            text: selectedText,
+                            targetLang: targetLanguage
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    const translation = data.translation;
+
+                    const rangeTranslation = window.getSelection().getRangeAt(0);
+                    const rectTranslation = rangeTranslation.getBoundingClientRect();
+                    const translateBox = document.createElement('div');
+
+                    translateBox.textContent = translation;
+                    translateBox.classList.add('translate-box');
+                    const containerElement = range.startContainer.parentElement;
+                    if (containerElement) {
+                        const containerRect = containerElement.getBoundingClientRect();
+                        translateBox.style.maxWidth = `${containerRect.width}px`;
+                    }
+                    translateBox.style.left = `${rectTranslation.left + window.scrollX}px`;
+                    translateBox.style.top = `${rectTranslation.top + window.scrollY - rectTranslation.height - 10}px`;
+
+                    document.body.appendChild(translateBox);
+                    currentTranslateBox = translateBox;
+
+                    translateButton.remove();
                 });
-
-                const data = await response.json();
-                console.log(data)
-                const translation = data.translation;
-
-                const rangeTranslation = window.getSelection().getRangeAt(0);
-                const rectTranslation = rangeTranslation.getBoundingClientRect();
-                const translateBox = document.createElement('div');
-
-                translateBox.textContent = translation;
-                translateBox.classList.add('translate-box');
-                const containerElement = range.startContainer.parentElement;
-                if (containerElement) {
-                    const containerRect = containerElement.getBoundingClientRect();
-                    translateBox.style.maxWidth = `${containerRect.width}px`;
-                }
-                translateBox.style.left = `${rectTranslation.left + window.scrollX}px`;
-                translateBox.style.top = `${rectTranslation.top + window.scrollY - rectTranslation.height - 10}px`;
-
-                document.body.appendChild(translateBox);
-                currentTranslateBox = translateBox;
-
-                translateButton.remove();
 
             } catch (error) {
                 console.error('Error translating text:', error);
