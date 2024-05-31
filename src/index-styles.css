@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+    padding: 10px 20px;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    justify-items: center;
+    align-items: center;
+}
+
+.home > h1 {
+    color: black;
+    font-size: 25px;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.home > p {
+    color: black;
+    font-size: 15px;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    text-align: justify;
+}
+
+.language {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    row-gap: 10px;
+}
+
+.language > label {
+    margin-top: 14px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+}
+
+.language > select:focus {
+    outline: none;
+}
+
+#language-select {
+    font-size: 15px;
+    padding: 5px;
+    font-family: "Open Sans", sans-serif;
+    width: 100%;
+    margin-bottom: 15px;
+}
