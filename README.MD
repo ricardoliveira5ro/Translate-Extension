@@ -31,4 +31,4 @@ Browser extension that allows users to translate selected text on any webpage. W
 3. Open your favorite browser and navigate to `chrome://extensions/`
 4. Enable developer mode
 5. "Load unpacked" and select the root directory of the cloned extension.
-6. Every time you make a change just "refresh" the extension in chrome://extensions/ and the page you want where you want to use the extension
+6. Every time you make a change just "refresh" the extension in chrome://extensions/ and the page where you want to use the extension
