@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Translate Extension",
+    "name": "Quick translation",
     "version": "1.0",
-    "description": "Translate selected text.",
+    "description": "Translate selected text on the screen",
     "permissions": [
         "contextMenus",
         "activeTab",
