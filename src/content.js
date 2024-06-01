@@ -42,6 +42,11 @@ document.addEventListener('mouseup', (event) => {
                     const data = await response.json();
                     const translation = data.translation;
 
+                    if (!window.getSelection().rangeCount) {
+                        translateButton.remove();
+                        return;
+                    }
+
                     const rangeTranslation = window.getSelection().getRangeAt(0);
                     const rectTranslation = rangeTranslation.getBoundingClientRect();
                     const translateBox = document.createElement('div');
