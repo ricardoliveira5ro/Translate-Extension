@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Quick translation",
+    "name": "Quick translator",
     "version": "1.0",
     "description": "Translate selected text on the screen",
     "permissions": [
