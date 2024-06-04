@@ -19,7 +19,7 @@ Browser extension that allows users to translate selected text on any webpage. W
 
 ### 🚀 Usage
 
-1. Download and Install the extension from the Chrome Web Store (link will be available soon)
+1. Download and Install the extension from [Chrome Web Store](https://chromewebstore.google.com/detail/quick-translator/lhggbpikmolpmhkepachhjnkkbmfoidj)
 2. Select any text on a webpage.
 3. Click the "Translate" button that appears next to the selected text or use right-click operation.
 4. The translated text will be displayed in a popup box above the selection.
